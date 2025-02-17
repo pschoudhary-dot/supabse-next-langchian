@@ -1,6 +1,9 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createContext } from 'react'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,6 +14,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const supabase = createClientComponentClient()
 
 export const metadata: Metadata = {
   title: "Create Next App",
